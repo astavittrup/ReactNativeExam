@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     },
 
     test: {
-        padding: 15,
+        padding: 20,
     },
 
     textInput: {
