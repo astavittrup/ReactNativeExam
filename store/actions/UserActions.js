@@ -1,9 +1,11 @@
+import { API_KEY } from '@env';
 import * as SecureStore from 'expo-secure-store';
-import LoginScreen from '../../screens/LoginScreen';
+import { Text } from 'react-native';
 export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
 export const RESTORE_USER = 'RESTORE_USER';
 export const LOGOUT = "LOGOUT";
+
 
 
 export const restoreUser = (email, token) => {
@@ -18,7 +20,7 @@ export const logout = () => {
 
 export const signup = (email, password) => {
     return async dispatch => {
-        const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDl9YBM32ozw7O0PP75nE52xpzWf_MZ4w4', {
+        const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`,  {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,9 +33,6 @@ export const signup = (email, password) => {
                 returnSecureToken: true
             })
         });
-
-
-        
 
         // console.log(await response.json());
 
@@ -50,8 +49,10 @@ export const signup = (email, password) => {
 };
 
 export const login = (email, password) => {
+    console.log(API_KEY.trim().length);
+    console.log((''+API_KEY).length );
     return async dispatch => {
-        const response = await fetch ('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDl9YBM32ozw7O0PP75nE52xpzWf_MZ4w4', {
+        const response = await fetch (`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,7 +67,7 @@ export const login = (email, password) => {
         const data = await response.json();
         console.log(data);
         if (!response.ok) {
-            console.log("there was a problem with the login")
+        
         } else {
             // await SecureStore.setItemAsync('email', data.email); // comment out to work in browser
             // await SecureStore.setItemAsync('token', data.idToken);  // comment out to work in browser

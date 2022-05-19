@@ -6,7 +6,6 @@ import chatReducer from './store/reducers/ChatReducer';
 import userReducer from "./store/reducers/UserReducer";
 import {StyleSheet} from 'react-native';
 
-
 const rootReducer = combineReducers({
   chat: chatReducer,
   user: userReducer,
@@ -22,7 +21,9 @@ export default function App() {
     <Provider store={store}>
       <NavigationComponent navigation={undefined} />
     </Provider>
+    
   )
+  
 }
 const styles = StyleSheet.create({
   container: {
