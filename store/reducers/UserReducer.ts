@@ -1,4 +1,6 @@
-import { LOGOUT, RESTORE_USER, SIGNUP, LOGIN } from "../actions/UserActions";
+import { LOGOUT, RESTORE_USER, SIGNUP, LOGIN, UPDATE_USER } from "../actions/UserActions";
+import { useSelector } from 'react-redux';
+import * as SecureStore from "expo-secure-store";
 
 
 export interface UserState {
@@ -23,6 +25,7 @@ export interface Action {
     payload: any;
 }
 
+
 const userReducer = (state: UserState = initialState, action: Action) => {
     switch (action.type) {
         case SIGNUP:
@@ -34,6 +37,21 @@ const userReducer = (state: UserState = initialState, action: Action) => {
 
          case LOGOUT:
                 return { ...state, idToken: undefined, email: undefined }
+
+                case UPDATE_USER:
+                    return {
+                      ...state,
+                      loggedInUser: {
+                        // ...state.loggedInUser,
+                        firstname: action.payload.firstname,
+                        lastname: action.payload.lastname,
+                        studyProgramme: action.payload.studyProgramme,
+                      },
+                      token: action.payload.token,
+                    };
+               
+        
+        
         default:
             return state; //does not do anything yet​   
     }

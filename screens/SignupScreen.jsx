@@ -10,11 +10,8 @@ const SignupScreen = ({ navigation }) => {
     const [password, setPassword] = useState('')
     const dispatch = useDispatch()
 
-    // const token = useSelector(state => state.user.idToken)
-    // const emailTest = useSelector(state => state.user.email)
-    // console.log(token);
-    // console.log(emailTest);
 
+    
     async function load() {
         let emailFromSecureStore = await SecureStore.getItemAsync('email');
         let tokenFromSecureStore = await SecureStore.getItemAsync('token');
