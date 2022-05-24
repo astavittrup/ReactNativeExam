@@ -31,7 +31,7 @@ function LoginScreen({ navigation }) {
         <SafeAreaView style={styles.container}>
         <View>
 
-            <Text style={styles.test}>Please enter your credentials to login
+            <Text style={styles.test}>Please enter your credentials to login!
      
             </Text>
             
