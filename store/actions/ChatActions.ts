@@ -35,7 +35,7 @@ export const fetchChatrooms = () => {
 
 
         const data = await response.json(); // json to javascript
-        console.log(data);
+        // console.log(data);
         if (!response.ok) {
             //There was a problem..
         } else {
