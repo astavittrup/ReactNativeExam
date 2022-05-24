@@ -1,9 +1,11 @@
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { restoreUser, signup } from './../store/actions/UserActions'
+import { restoreUser } from './../store/actions/UserActions'
+import { signup } from './../store/actions/SignupAction'
 import * as SecureStore from 'expo-secure-store';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 const SignupScreen = ({ navigation }) => {
     const [email, setEmail] = useState('')
@@ -39,11 +41,17 @@ const SignupScreen = ({ navigation }) => {
                 value={email} />
 
             <TextInput 
-             style={styles.textInput}
-            placeholder='Enter your password'
+                secureTextEntry={true}
+                style={styles.textInput}
+                placeholder='Enter your password'
                 onChangeText={setPassword}
                 value={password} />
-<View style={styles.test}>
+
+
+
+
+            <View style={styles.test}>
+
             <Button title="Signup" onPress={() => dispatch(signup(email, password))} />
            
           

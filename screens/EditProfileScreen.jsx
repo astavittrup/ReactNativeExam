@@ -7,7 +7,8 @@ const EditProfileScreen = ({ navigation }) => {
     const username = useSelector(state => state.user.username);
     const [validUsername, setValidUsername] = useState(username !== '')
 
-    const save = () => {
+    const save = (text) => {
+        console.log('test');
         // ** if the "form" is valid ** {
         // save data - we need access to text here...
         //} else {

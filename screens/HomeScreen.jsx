@@ -1,5 +1,8 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from "react-redux";
+
+
 
 const HomeScreen = ({ navigation }) => {
 

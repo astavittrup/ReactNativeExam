@@ -1,5 +1,5 @@
 import { Chatroom } from "../../entities/Chatroom";
-
+import { API_KEY } from '@env';
 export const TOGGLE_HAPPY = 'TOGGLE_HAPPY';
 export const ADD = 'ADD';
 export const SUBTRACT = 'SUBTRACT';
@@ -31,7 +31,7 @@ export const fetchChatrooms = () => {
             headers: {
                 'Content-Type': 'application/json'
             }
-        });
+        }); 
 
 
         const data = await response.json(); // json to javascript
@@ -53,8 +53,7 @@ export const fetchChatrooms = () => {
 
 export const addChatroom = (chatroomName: string) => {
     return async (dispatch: any, getState: any) => {
-        // const msg: Chatmessage = new Chatmessage('Hello', new Date()); //example of using typescript
-        const idToken = getState().user.idToken
+        const idToken = getState().user.idToken  //accessing token in the state
 console.log(idToken)
         const response = await fetch(
             'https://reactnative-ce12d-default-rtdb.europe-west1.firebasedatabase.app/chatrooms.json?auth='
@@ -67,7 +66,8 @@ console.log(idToken)
             body: JSON.stringify({ //javascript to json
                 //key value pairs of data you want to send to server
                 // ...
-                chatroomName
+                chatroomName: chatroomName,
+                messages: ''
             })
         });
 

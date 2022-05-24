@@ -1,10 +1,9 @@
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { restoreUser, login } from './../store/actions/UserActions'
+import { refreshToken, restoreUser, login } from './../store/actions/UserActions'
 import * as SecureStore from 'expo-secure-store';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 
 
 function LoginScreen({ navigation }) {
@@ -12,10 +11,15 @@ function LoginScreen({ navigation }) {
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
 
+
+
+
     async function load() {
         let emailFromSecureStore = await SecureStore.getItemAsync('email');
         let tokenFromSecureStore = await SecureStore.getItemAsync('token');
+
         if (emailFromSecureStore && tokenFromSecureStore) {
+           
             console.log("success", emailFromSecureStore);
             dispatch(restoreUser(emailFromSecureStore, tokenFromSecureStore));
         } else {
@@ -36,7 +40,9 @@ function LoginScreen({ navigation }) {
             placeholder='email'
                 onChangeText={setEmail}
                 value={email} />
-            <TextInput placeholder='Password'
+            <TextInput 
+            secureTextEntry={true}
+            placeholder='Password'
              style={styles.textInput}
                 onChangeText={setPassword}
                 value={password} />

@@ -38,11 +38,6 @@ const chatReducer = (state = initialState, action) => {
 
 
 
-        //            return {...state, chatrooms: [...state.chatrooms, {title: action.payload}]}
-
-
-        // state.isHappy = !state.isHappy; // not allowed, it mutates the prior state
-
         default:
             return state; //does not do anything yet​   
     }

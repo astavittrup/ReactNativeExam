@@ -1,18 +1,23 @@
+import React from "react";
 import { Provider } from 'react-redux';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import ReduxThunk from 'redux-thunk';
+import {StyleSheet} from 'react-native';
+
 import NavigationComponent from './components/Navigation';
 import chatReducer from './store/reducers/ChatReducer';
 import userReducer from "./store/reducers/UserReducer";
-import {StyleSheet} from 'react-native';
+import User from "./entities/user";
 
 const rootReducer = combineReducers({
   chat: chatReducer,
   user: userReducer,
-  // events: eventReducer
 })
+
+// redux state - typescript
 export type RootState = ReturnType<typeof rootReducer>
 
+// redux
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 export default function App() {
@@ -25,6 +30,8 @@ export default function App() {
   )
   
 }
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
