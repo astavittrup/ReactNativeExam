@@ -26,7 +26,7 @@ const SignupScreen = ({ navigation }) => {
     }
     // read from secure store
     useEffect(() => {
-        // load(); // comment out in order to work in browser 
+    // load(); // comment out in order to work in browser 
     }, [])
 
 

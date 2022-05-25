@@ -30,8 +30,8 @@ export const signup = (email, password) => {
         if (!response.ok) {
     console.log(response.message);
         } else {
-            await SecureStore.setItemAsync('email', data.email);
-            await SecureStore.setItemAsync('token', data.idToken);
+            // await SecureStore.setItemAsync('email', data.email);
+            // await SecureStore.setItemAsync('token', data.idToken);
            
             dispatch({ type: SIGNUP, payload: { email: data.email, idToken: data.idToken } })
         }
