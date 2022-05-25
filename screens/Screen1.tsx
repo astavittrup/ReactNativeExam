@@ -33,7 +33,6 @@ const Screen1 = ({ navigation }: { navigation: any }) => {
             <Text>How many icecreams should Christians children have {numberOfIcecreams}</Text>
             <Button title="Go to screen 2" onPress={() => navigation.navigate('Screen2')} />
             <Button title="Flip happy" onPress={() => dispatch(toggleHappy())} />
-
             <Button title="Give Icecream" onPress={() => dispatch(add())} />
             <Button title="Steal Icecream" onPress={() => dispatch(subtract())} /> */}
 
