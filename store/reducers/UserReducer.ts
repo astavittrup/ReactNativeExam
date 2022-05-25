@@ -1,4 +1,4 @@
-import { LOGOUT, RESTORE_USER, LOGIN } from "../actions/UserActions";
+import { LOGOUT, LOGIN, RESTORE_USER } from "../actions/UserActions";
 import { SIGNUP } from "../actions/SignupAction";
 import { useSelector } from 'react-redux';
 import * as SecureStore from "expo-secure-store";
@@ -22,7 +22,7 @@ export interface Action {
   payload: any;
 }
 
-const userReducer = (state = initialState, action) => {
+const userReducer = (state: UserState = initialState, action: Action) => {
     switch (action.type) {
         case SIGNUP:
             return {

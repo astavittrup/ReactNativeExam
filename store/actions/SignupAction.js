@@ -8,10 +8,6 @@ export const SIGNUP = 'SIGNUP';
 
 
 
-const dbEndpoint = "https://reactnative-ce12d-default-rtdb.europe-west1.firebasedatabase.app/";
-const authEndpoint = `https://identitytoolkit.googleapis.com/v1/accounts:`;
-
-
 export const signup = (email, password) => {
     return async dispatch => {
         const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`,  {

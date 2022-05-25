@@ -1,23 +1,9 @@
 import { Chatroom } from "../../entities/Chatroom";
-import { API_KEY } from '@env';
-export const TOGGLE_HAPPY = 'TOGGLE_HAPPY';
-export const ADD = 'ADD';
-export const SUBTRACT = 'SUBTRACT';
 export const ADD_CHATROOM = 'ADD_CHATROOM';
 export const DELETE_CHATROOM = 'DELETE_CHATROOM';
 export const FETCH_CHATROOMS = 'FETCH_CHATROOMS';
 
-export const toggleHappy = () => {
-    return { type: TOGGLE_HAPPY };
-};
 
-export const add = () => {
-    return { type: ADD };
-};
-
-export const subtract = () => {
-    return { type: SUBTRACT };
-};
 
 export const fetchChatrooms = () => {
     return async (dispatch: any, getState: any) => {

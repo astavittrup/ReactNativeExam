@@ -2,14 +2,6 @@ import { View, Text, TextInput } from 'react-native';
 import { useState } from 'react';
 
 
-interface Props {
-  text: string;
-  setText: (arg: string) => void;
-  isValid: boolean;
-  setIsValid: (arg: boolean) => void;
-  error: string;
-}
-
 
 const Input = props => {
     const [text, setText] = useState(props.inputValue)

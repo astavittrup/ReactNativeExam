@@ -8,7 +8,7 @@ const ProfileScreen = ({ navigation }) => {
     return (
         <View>
             <Text>I am ProfileScreen</Text>
-      
+            <Button title="Edit Profile" onPress={() => navigation.navigate('EditProfile')} />
             <Button title="Logout" onPress={() => dispatch(logout())} />
         </View>
     );
