@@ -8,7 +8,7 @@ export const SIGNUP = 'SIGNUP';
 
 
 
-export const signup = (email, password) => {
+export const signup = (email, password, displayName) => {
     return async dispatch => {
         const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`,  {
             method: 'POST',
@@ -20,6 +20,7 @@ export const signup = (email, password) => {
                 // ...
                 email: email,
                 password: password,
+                displayName: displayName,
                 // get token to verify user
                 returnSecureToken: true
             })
@@ -33,7 +34,7 @@ export const signup = (email, password) => {
             // await SecureStore.setItemAsync('email', data.email);
             // await SecureStore.setItemAsync('token', data.idToken);
            
-            dispatch({ type: SIGNUP, payload: { email: data.email, idToken: data.idToken } })
+            dispatch({ type: SIGNUP, payload: { email: data.email, idToken: data.idToken, displayName: data.displayName } })
         }
     };
 };

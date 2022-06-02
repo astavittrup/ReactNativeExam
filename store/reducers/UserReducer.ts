@@ -7,14 +7,14 @@ import * as SecureStore from "expo-secure-store";
 export interface UserState {
   idToken: string | undefined;
   email: string | undefined;
-  username: string | undefined;
+  displayName: string | undefined;
 }
 
 
 const initialState: UserState = {
   idToken: undefined,
   email: undefined,
-  username: undefined
+  displayName: undefined
 };
 
 export interface Action {
@@ -28,7 +28,7 @@ const userReducer = (state: UserState = initialState, action: Action) => {
             return {
  //copy state to prevent mutation
               ...state, 
-              idToken: action.payload.idToken, email: action.payload.email
+              idToken: action.payload.idToken, email: action.payload.email, displayName: action.payload.displayName,
                
               };
              

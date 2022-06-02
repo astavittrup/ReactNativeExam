@@ -6,6 +6,7 @@ import {  addChatroom, deleteChatroom, fetchChatrooms } from '../store/actions/C
 
 const Screen1 = ({ navigation }: { navigation: any }) => {
     const [text, onChangeText] = useState('');
+    // const [text, onChangeText] = useState('');
 
     // const isHappy = useSelector((state: RootState) => state.chat.isHappy); // subscribing to the store's chat slice/part
     // const numberOfIcecreams = useSelector((state: RootState) => state.chat.counter)
@@ -29,12 +30,10 @@ const Screen1 = ({ navigation }: { navigation: any }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.test}>Chat</Text>
-            {/* <Text>Is Christian happy? {isHappy.toString()}</Text>
-            <Text>How many icecreams should Christians children have {numberOfIcecreams}</Text>
-            <Button title="Go to screen 2" onPress={() => navigation.navigate('Screen2')} />
-            <Button title="Flip happy" onPress={() => dispatch(toggleHappy())} />
-            <Button title="Give Icecream" onPress={() => dispatch(add())} />
-            <Button title="Steal Icecream" onPress={() => dispatch(subtract())} /> */}
+         
+
+
+
 
             <TextInput placeholder="Chatroom name"
                 style={styles.input}
